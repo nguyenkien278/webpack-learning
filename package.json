@@ -1,0 +1,23 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "package description",
+  "main": "main.js",
+  "scripts": {
+    "test": "console.log(\"abc dsf test command\");"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenkien278/webpack-learning.git"
+  },
+  "keywords": [
+    "webpack",
+    "learning"
+  ],
+  "author": "KienNguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyenkien278/webpack-learning/issues"
+  },
+  "homepage": "https://github.com/nguyenkien278/webpack-learning#readme"
+}
