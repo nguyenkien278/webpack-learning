@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/nguyenkien278/webpack-learning#readme",
   "devDependencies": {
+    "css-loader": "^0.28.7",
+    "style-loader": "^0.18.2",
     "webpack": "^3.6.0",
     "webpack-build": "^1.0.1",
     "webpack-dev-server": "^2.8.2"
