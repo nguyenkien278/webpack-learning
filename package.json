@@ -4,7 +4,7 @@
   "description": "package description",
   "main": "main.js",
   "scripts": {
-    "test": "console.log(\"abc dsf test command\");"
+    "build:dev": "webpack"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,13 @@
   "bugs": {
     "url": "https://github.com/nguyenkien278/webpack-learning/issues"
   },
-  "homepage": "https://github.com/nguyenkien278/webpack-learning#readme"
+  "homepage": "https://github.com/nguyenkien278/webpack-learning#readme",
+  "devDependencies": {
+    "webpack": "^3.6.0",
+    "webpack-build": "^1.0.1",
+    "webpack-dev-server": "^2.8.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
 }
