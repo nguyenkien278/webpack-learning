@@ -1,6 +1,13 @@
 
-
+$black: #000;
 .level1{
 	color:red;
+	.level2{
+		color:blue;
+	}
+}
+
+.black_color{
+	color:$black;
 }
 

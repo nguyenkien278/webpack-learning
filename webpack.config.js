@@ -1,10 +1,11 @@
 
 const path = require('path');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const extractSass = new ExtractTextPlugin({
     filename: "[name].bundle.css",
-    disable: process.env.NODE_ENV === "development"
+    // disable: process.env.NODE_ENV === "development"
 });
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: ['./src/main.js','./src/main.scss'],
@@ -25,24 +26,24 @@ module.exports = {
 		},
 		{ // sass / scss loader for webpack
 			test: /\.scss$/,
-            use: extractSass.extract({
+            use: ExtractTextPlugin.extract({
                 use: [{
                     loader: "css-loader"
                 }, {
                     loader: "sass-loader"
                 }],
-                // use style-loader in development 
-                fallback: "style-loader"
             })
-		  }
-
+		}
       ],
 
     },
 	
 	plugins: [
-		extractSass
-	  ],
+		extractSass, //compile sass to css
+		new HtmlWebpackPlugin({
+		  title: "Output Management"
+		})
+	],
 	
   output: {
     filename: 'bundle.js',
