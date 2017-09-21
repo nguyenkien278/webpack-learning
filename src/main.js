@@ -2,6 +2,8 @@ import _ from 'lodash';
 import './style.css';
 import Icon from './img.jpg';
 
+import './main.scss';
+
 function component() {
     var element = document.createElement('div');
   

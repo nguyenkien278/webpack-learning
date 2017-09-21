@@ -1,17 +1,21 @@
 
 const path = require('path');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const extractSass = new ExtractTextPlugin({
+    filename: "[name].bundle.css",
+    disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
-  entry: ['./src/main.js'],
+  entry: ['./src/main.js','./src/main.scss'],
   module: {
       rules: [
         {
           test: /\.css$/,
-          use: [
-            'style-loader',
-            'css-loader'
-          ]
+          use: ExtractTextPlugin.extract({
+            fallback: "style-loader",
+            use: "css-loader"
+         })
         },
 		{
 			test: /\.(png|svg|jpg|gif)$/,
@@ -19,17 +23,25 @@ module.exports = {
 			  'file-loader'
 			]
 		},
+		{ // sass / scss loader for webpack
+			test: /\.scss$/,
+            use: extractSass.extract({
+                use: [{
+                    loader: "css-loader"
+                }, {
+                    loader: "sass-loader"
+                }],
+                // use style-loader in development 
+                fallback: "style-loader"
+            })
+		  }
 
       ],
 
     },
 	
 	plugins: [
-		new ExtractTextPlugin({ // define where to save the file
-		  filename: '[name].bundle.css',
-		  disalbe:false,
-		  allChunks: true,
-		}),
+		extractSass
 	  ],
 	
   output: {
